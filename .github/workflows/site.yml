@@ -29,6 +29,9 @@ concurrency:
 
 jobs:
   deploy:
+    # This deployment belongs to the upstream project and its Cloudflare domain.
+    # Maestro uses CI for builds; configure its own hosting before publishing.
+    if: github.repository == 'bas3line/agent-office'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
