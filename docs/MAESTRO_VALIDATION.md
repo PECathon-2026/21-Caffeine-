@@ -1,0 +1,95 @@
+# Maestro UI validation — 30 October 2026
+
+These results come from actual development checks on the UI. The patch, agent conversations and test results shown *inside the demo* remain scripted examples. There is no connected autonomous agent engine.
+
+## Maestro branding and daylight repair
+
+Renamed product branding, page titles, accessibility labels, the M emblem, export identifiers, download filenames, preview environment variable (`MAESTRO_PORT`) and documentation. Original upstream attribution is retained.
+
+Fixed the daylight dock's conflicting dark background, pale warning tags and role labels, character nameplates, speech bubbles, tool tips and workspace labels. Daylight now has brighter greens, pink blossom, clearer water and a blue sky. Dark-mode artwork is preserved.
+
+Changing to daylight or reduced motion now completes active journeys at the requested tool with the correct facing and a static working pose. Still-mode handoffs complete without waiting for animation frames. Explicit dark-mode pause keeps the actor's current position and route. Motion remains dark-mode-only.
+
+Executed checks for this revision:
+
+- Typecheck and production build passed.
+- **38 repository UI tests passed**, including new interrupted-travel and immediate tool-action regressions.
+- Existing mounted application checks passed **11 + 8 groups**. The movement check passed **1,172 frames** and camera-follow check passed **629 frames**.
+- A new mounted scene check passed **6 daylight regression groups**: mid-route theme change, direct tool selection, manual/phase-triggered handoff completion, stable still markup, dark-mode pause/resume and reduced motion. See `light-mode-checks.json`.
+- Two browser visual passes covered **1366 × 768** and **1440 × 900** laptops. All five detail pages were inspected in light mode, plus the full scene in both themes and dark Guild profiles. No horizontal overflow was observed on the sampled pages. Quench selection and the test-to-repair feedback loop were exercised in daylight. The sampled repair warning uses #983f3a on #f6e6e2 (5.58:1 contrast). See `maestro-visual-review.json` and Maestro laptop screenshots.
+- A source search found no remaining old product-name references; the current source archive and exports use Maestro.
+
+These are development tests and browser observations, not evidence of a real multi-agent mission. The historical sections below retain their original check counts.
+
+## Operational-page redesign
+
+Mission, Guild, Campaign, Evidence and Settings were rebuilt with shared navigation, a sans-serif type hierarchy, role portraits, clearer decisions and consistent form controls. Activity, tool workspaces and modal dialogs were also restyled. The closed main guild page and its camera, paths and artwork were preserved.
+
+The build, typecheck and **36 repository UI tests** passed. The existing **11-group application integration check** passed again. A new mounted application check passed **8 groups**, covering all five page routes and active navigation, theme/pause/reduced-motion settings, evidence filtering and its empty state, feedback and retry consumption, clarification and stop holds, repeated tool failures, dialogs and the approval guard, and preservation of the main scene and Auto-follow. These are actual DOM interaction checks; see `detail-interaction-checks.json`.
+
+Two visual review passes were performed. The first reviewed the five pages and identified a title-focus outline, inherited form colours and spacing issues. The second focused on laptops, following the user's clarification: **1366 × 768** and **1440 × 900**. Short-laptop styling reduces excess header/card spacing without reducing the body text scale. The observed pages had no horizontal page overflow; longer settings and evidence pages scroll vertically. Dark and light themes were inspected. Browser observations and captures are recorded in `detail-visual-review.json` and the laptop screenshots.
+
+The browser's full-page screenshot mode sometimes produced repeated stitched content during the first pass. Final laptop captures use viewport screenshots. Screenshot stitching is not treated as evidence of duplicate application content.
+
+React Bits' Animated Content and Spotlight Card were consulted as motion references. The implementation uses the existing TypeScript/CSS stack, without copying their source or adding React/GSAP. No Animos site is claimed as used; its exact URL was not provided.
+
+## Automatic station focus revision
+
+- `npm run typecheck`: passed.
+- `npm run build`: passed.
+- `npm run test:guild`: **36 passed, 0 failed, 0 cancelled**.
+- `git diff --check`: passed.
+
+The checks cover mission approval guards, honest evidence export, repair feedback, iteration limits, clarification and stop holds, repeated tool failures, five separated station footprints, tool bounds, collision-free shared corridors, distinct character cadences, movement without overshoot and dark-only animation permissions.
+
+Six additional checks cover: fitting all five rooms on wide/narrow viewports; focused rooms remaining fully visible; repeated zoom/pan bounds; keeping a pointer's world location steady during zoom; turning before walking; and distinct front/side/rear sprite drawings for every role.
+
+Six auto-follow checks cover phase ownership; handoff, hold and selected-tool targets; smooth transitions without restarting each frame; motion-disabled behavior; manual control until explicit resumption; and retargeting during a transition or resize.
+
+## Automatic station focus integration
+
+The actual scene and camera controls ran through **629 frames** in a separate mounted DOM check. All six groups passed: Forge → Dojo tracking; courtyard framing and return to Forge after the physical handoff; manual Fit guild staying in control across phase changes and explicit Auto-follow resumption; immediate, still framing in light/pause/reduced-motion modes; selected tools, holds, approval and completion; and mobile resize. Both SVG layers had identical viewBoxes at every sampled frame. The report is `auto-follow-checks.json` in the output package.
+
+This verifies the scene's real integration with the camera controller, but does not substitute for browser rendering or a physical-device test.
+
+## Mounted UI integration
+
+A separate LinkeDOM harness ran the actual application and its event handlers. **All 11 groups passed**, covering:
+
+- Activity, mission, guild and settings navigation.
+- Light/dark mode and manual scenery pause.
+- Scripted failed-check → repair progression and retry consumption.
+- Persistence of scene and camera through panel changes.
+- All ten physical tools: four compact in-scene actions and six detail workspaces.
+- Zoom, workspace focus, aligned background/character viewports and Fit guild.
+- Synthetic drag, wheel, two-pointer pinch and keyboard reset.
+- Opening scripted evidence from the scanner's compact action.
+- Campaign holds, clarification and explicit continuation.
+
+This is a DOM integration run, **not a browser rendering test or physical-device touch test**. Its report is `ui-interaction-checks.json` in the output package. Camera geometry is additionally tested across multiple aspect ratios by the repository tests.
+
+## Movement and depth regression checks
+
+Seven new repository tests cover all **100 ordered tool-to-tool journeys**, mid-edge interruptions, required doorway passage, distinct courtyard handoff destinations, invalid-origin guards, visible paths matching the navigation graph, and role-specific foot contact.
+
+A separate mounted-scene integration run advanced the real scene controller through **1,172 frames** with a controlled animation clock. Every sampled position remained on a walkway and clear of the defined solid footprints. The renderer kept characters and objects in ascending ground-depth order. Mid-route reassignment preserved the character's position. Both handoff participants physically reached their separate courtyard pads before receiving return routes. Switching to daylight kept the scene markup still. The report is `movement-checks.json` in the output package. This is an executed DOM animation test, not a browser video or an autonomous agent mission.
+
+## Browser review
+
+The updated desktop scene was visually inspected at **1280 × 720**, and the mobile view at **390 × 844**. Document dimensions matched the viewport with no page overflow at either size. Desktop and mobile screenshots were captured from the browser.
+
+The Autonomy controls and shared mission board opened in the browser. Observed actor metadata showed Shogun using the north promenade (`y=286`) and front-door waypoints, then a safe return route to Council after changing tools. The browser's observed object/character order followed their ground depth, and the two SVG layers shared the same camera viewBox.
+
+Automatic station focus was exercised in the browser through building, testing, repair, verification, review and approval. The view followed Forge → Dojo → courtyard → Forge, then Archive and Campaign in later stages. Fit guild disabled automatic tracking; advancing the mission preserved that manual view; enabling Auto-follow resumed the latest target. DOM observations captured in-progress transitions with identical viewBoxes on both SVG layers. Paused and light-mode observations showed still camera state. These observations are recorded in `auto-follow-browser.json`.
+
+Mobile opens the active workspace at a readable scale and continues following mission changes. The Forge view was inspected at 300% zoom, with its selector highlighted. The new Auto-follow control fits the mobile toolbar. After correcting a spacing overlap, the camera controls and bottom dock had a 13-pixel gap at 390 × 844; the scene footnote had an 8-pixel gap above the camera controls. Fit guild remains available.
+
+Earlier browser automation had intermittent pre-dispatch timeouts; these current desktop/mobile observations and screenshots succeeded. Physical-device pinch and an OS-level reduced-motion session remain untested. Gesture handlers and dark-only animation permissions have automated coverage.
+
+## Inherited suite baseline
+
+An earlier `npm test` run on Node 22.22.2 reported 504 tests: 479 passed, 23 cancelled, 2 skipped, 0 assertion failures. It was **not a clean full-suite pass**. Inherited `control.cloud.places.test.mjs` and `remote.manager.test.mjs` suites cancelled with “Promise resolution is still pending but the event loop has already resolved.” Those backend sources and tests were not modified. Upstream CI uses Node 24. The full inherited suite was not rerun for this UI revision.
+
+## Scope
+
+Designed and implemented directly in code; Figma was not used for this revision. The original repository was cloned, not forked. Nothing was merged, published or deployed. Real model coordination, isolated code changes, test execution, independent verification and security review remain future engine work.

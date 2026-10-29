@@ -1,0 +1,890 @@
+/* Guild presentation. Role colour, type and spacing are shared across scene controls. */
+:root {
+  --council: #efc785;
+  --forge: #f2a07c;
+  --dojo: #74d9c1;
+  --archive: #bd9be5;
+  --campaign: #a5b9ec;
+}
+[data-workspace="shogun"] {
+  --role-color: var(--council);
+}
+[data-workspace="samurai"] {
+  --role-color: var(--forge);
+}
+[data-workspace="sentinel"] {
+  --role-color: var(--dojo);
+}
+[data-workspace="shadow"] {
+  --role-color: var(--archive);
+}
+[data-workspace="campaign"] {
+  --role-color: var(--campaign);
+}
+:root[data-theme="dark"] {
+  --paper: #10101d;
+  --surface: #191c29;
+  --line: #ffffff14;
+  --muted: #a3a8b8;
+  --ink: #f1f0eb;
+}
+.cockpit.is-overview {
+  min-height: 480px;
+}
+.cockpit.is-overview .cockpit-header {
+  padding: 22px 28px;
+  gap: 24px;
+}
+.cockpit-brand {
+  gap: 12px;
+}
+.cockpit .guild-emblem {
+  width: 38px;
+  height: 38px;
+  background: #edc58b;
+}
+.brand-type {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.cockpit-brand .brand-type strong {
+  font:
+    29px/1 Pixel,
+    monospace;
+  letter-spacing: -0.6px;
+}
+.brand-type > span {
+  font: 8px/1.4 var(--mono);
+  letter-spacing: 1.9px;
+  color: var(--muted);
+}
+.cockpit .mission-pill {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #181b28e8;
+  box-shadow:
+    0 6px 24px #080b141a,
+    inset 0 1px #ffffff06;
+}
+.cockpit .mission-pill strong {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.cockpit .mission-pill span span {
+  font-size: 10px;
+}
+.cockpit .mission-pill .badge {
+  border: 0;
+  padding: 6px 9px;
+  font: 10px var(--sans);
+  background: #dfb67c19;
+  color: #f0cf96;
+}
+.cockpit .crew-summary {
+  font-size: 10px;
+  gap: 12px;
+}
+.demo-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.demo-indicator .status-dot {
+  width: 5px;
+  height: 5px;
+  background: #a9bba8;
+  box-shadow: none;
+}
+
+/* The visible scene and both SVG layers share exactly the same viewport. */
+.cockpit .world-panel {
+  padding: 82px 0 96px;
+  overflow: hidden;
+}
+.cockpit .world-map {
+  aspect-ratio: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.cockpit .world-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+}
+.cockpit .world-art.is-panning {
+  cursor: grabbing;
+}
+.cockpit .world-art > svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  overflow: hidden;
+  filter: none;
+}
+.world-art > svg {
+  image-rendering: pixelated;
+}
+.world-art:focus-visible {
+  outline: 1px solid #efc78580;
+  outline-offset: -5px;
+}
+.world-art .guild-character,
+.world-art .tool-target {
+  cursor: pointer;
+}
+.cockpit .world-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 -25px 32px -26px #10101d,
+    inset 0 25px 32px -26px #10101d;
+}
+.cockpit .scene-footnote {
+  bottom: 20px;
+  left: 28px;
+  right: 28px;
+  width: auto;
+  align-items: center;
+  font: 10px var(--sans);
+  opacity: 1;
+}
+.cockpit .scene-footnote span:last-child {
+  display: none;
+}
+.cockpit .sprite-name {
+  font: 8px var(--sans);
+  font-weight: 550;
+  stroke-width: 3px;
+  fill: #faf0dc;
+  letter-spacing: 0.15px;
+}
+.character-thought text {
+  font:
+    9px Pixel,
+    monospace;
+  letter-spacing: 0.2px;
+}
+.tool-corner {
+  opacity: 0.25;
+}
+.tool-target.selected .tool-corner {
+  opacity: 0.9;
+}
+.tool-hit {
+  stroke-width: 1;
+}
+.tool-target:focus-visible .tool-hit {
+  stroke-width: 2;
+}
+
+/* Quiet location menu; the world's tools remain the primary interaction. */
+.workspace-nav {
+  position: absolute;
+  top: 115px;
+  left: 24px;
+  width: 168px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 6px;
+  border: 1px solid #ffffff0b;
+  border-radius: 14px;
+  background: #161a27dd;
+  box-shadow: 0 12px 30px #060a1318;
+}
+.nav-eyebrow {
+  font: 8px var(--mono);
+  letter-spacing: 1.3px;
+  color: #9a9fae;
+  padding: 4px 10px 12px;
+}
+.workspace-nav button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  text-align: left;
+  color: var(--ink);
+  background: transparent;
+}
+.workspace-number {
+  font: 9px var(--mono);
+  color: var(--role-color);
+  opacity: 0.8;
+}
+.workspace-nav button > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.workspace-nav strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.workspace-nav button span span {
+  font-size: 9px;
+  color: #9a9fae;
+}
+.workspace-arrow {
+  font-size: 12px;
+  color: var(--role-color);
+  opacity: 0;
+}
+.workspace-nav button:hover,
+.workspace-nav button[aria-pressed="true"] {
+  background: #ffffff07;
+  border-color: #ffffff0b;
+}
+.workspace-nav button[aria-pressed="true"] strong {
+  color: var(--role-color);
+}
+.workspace-nav button:hover .workspace-arrow,
+.workspace-nav button[aria-pressed="true"] .workspace-arrow {
+  opacity: 1;
+}
+.nav-hint {
+  padding: 12px 9px 2px;
+  font-size: 8px;
+  line-height: 1.6;
+  color: #7f889a;
+}
+
+/* Camera controls stay usable above the world and below detail panels. */
+.camera-controls {
+  position: absolute;
+  right: 26px;
+  bottom: 22px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #191d2be8;
+  box-shadow: 0 8px 28px #0002;
+}
+.camera-controls button {
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  border-radius: 6px;
+  min-width: 30px;
+  height: 30px;
+  font-size: 19px;
+}
+.camera-controls button:last-child {
+  margin-left: 3px;
+  padding: 0 10px;
+  border-left: 1px solid var(--line);
+  border-radius: 0 5px 5px 0;
+  font: 10px var(--sans);
+}
+.camera-controls button:hover {
+  background: #ffffff09;
+}
+.camera-controls output {
+  min-width: 40px;
+  text-align: center;
+  color: var(--muted);
+  font: 9px var(--mono);
+}
+.camera-controls .camera-follow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  margin-right: 4px;
+  border-right: 1px solid var(--line);
+  border-radius: 6px 0 0 6px;
+  font: 10px var(--sans);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.camera-controls .camera-follow[aria-pressed="true"] {
+  color: var(--dojo);
+  background: color-mix(in srgb, var(--dojo), transparent 94%);
+}
+.follow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.cockpit.is-overview .guild-dock {
+  bottom: 16px;
+  padding: 7px;
+  gap: 3px;
+  border-radius: 13px;
+  border: 1px solid #ffffff12;
+  background: #1a1d2bee;
+  box-shadow:
+    0 10px 40px #080b1740,
+    inset 0 1px #ffffff05;
+}
+.cockpit .guild-dock .btn {
+  min-height: 34px;
+  border-radius: 7px;
+  padding: 9px 12px;
+  font: 11px var(--sans);
+  font-weight: 450;
+  color: #b8bcc9;
+}
+.cockpit .guild-dock .dock-create {
+  background: #edc58b;
+  color: #252027;
+  font-weight: 600;
+}
+.cockpit .guild-dock .dock-play {
+  background: #edc58b12;
+  color: #efc785;
+}
+.cockpit .guild-dock .dock-icon {
+  padding: 9px;
+}
+.cockpit .guild-dock :is(.dock-next, .dock-settings) {
+  font-size: 0;
+  padding: 9px;
+  gap: 0;
+}
+.dock-divider {
+  margin: 0 3px;
+  height: 20px;
+}
+
+/* Small actions stay attached to the object; only substantive detail needs a panel. */
+.scene-action {
+  position: absolute;
+  width: 268px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--role-color), transparent 60%);
+  border-radius: 11px;
+  background: #1b1e2cf5;
+  box-shadow: 0 12px 35px #0006;
+  cursor: default;
+  z-index: 4;
+  color: var(--ink);
+}
+.action-kicker {
+  display: block;
+  font: 7px var(--mono);
+  letter-spacing: 1px;
+  color: var(--role-color);
+  margin-bottom: 9px;
+}
+.scene-action > strong {
+  display: block;
+  padding-right: 7px;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  font-weight: 550;
+}
+.scene-action p {
+  font-size: 10px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 7px 0 12px;
+}
+.scene-action .action-close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+}
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.action-buttons button {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #ffffff04;
+  color: var(--ink);
+  padding: 7px 9px;
+  font-size: 10px;
+}
+.action-buttons button:first-child {
+  color: var(--role-color);
+  background: color-mix(in srgb, var(--role-color), transparent 94%);
+}
+.action-buttons button:hover {
+  border-color: var(--role-color);
+}
+.workbench-panel {
+  top: 90px;
+  bottom: 86px;
+  right: 24px;
+  width: 346px;
+  border-radius: 14px;
+  background: #191d2af7;
+  box-shadow: 0 24px 64px #06091055;
+  border-color: #ffffff16;
+}
+.workbench-heading {
+  padding: 22px;
+  border-top: 2px solid var(--role-color);
+}
+.workbench-heading .eyebrow {
+  color: var(--role-color);
+  font: 8px var(--mono);
+  letter-spacing: 1.2px;
+}
+.workbench-heading h2 {
+  font: 21px/1.3 var(--sans);
+  font-weight: 550;
+  letter-spacing: -0.65px;
+  margin-top: 8px;
+}
+.workbench-body {
+  padding: 22px;
+  gap: 18px;
+}
+.workbench-body p {
+  font-size: 12px;
+}
+.workbench-body :is(input, textarea, select) {
+  border-radius: 7px;
+  min-height: 38px;
+  background: #111622;
+}
+.workbench-body .tool-primary {
+  color: #161c26;
+  background: var(--role-color);
+  border-color: var(--role-color);
+  font-weight: 550;
+}
+.workbench-disclosure {
+  font-size: 8px;
+  padding: 13px 22px;
+  color: #9a9fae;
+}
+.cockpit .activity-panel {
+  top: 90px;
+  bottom: 86px;
+  border-radius: 14px;
+}
+.toast {
+  top: 92px;
+  font-size: 12px;
+  border-radius: 9px;
+}
+
+.world-art[data-motion="running"] [data-effect="koi"] {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: koi-drift 12s ease-in-out infinite;
+}
+.world-art[data-motion="running"] [data-effect="fireflies"] {
+  animation: firefly-light 5s ease-in-out infinite alternate;
+}
+@keyframes koi-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(9px, -4px);
+  }
+}
+@keyframes firefly-light {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  40%,
+  70% {
+    opacity: 0.8;
+  }
+}
+[data-theme="light"]
+  .cockpit
+  :is(
+    .mission-pill,
+    .workspace-nav,
+    .camera-controls,
+    .scene-action,
+    .workbench-panel
+  ) {
+  background: #f5f1e5f5;
+  border-color: #59654e24;
+  color: #34453d;
+}
+[data-theme="light"] .cockpit .mission-pill .badge {
+  color: #796038;
+  background: #ae864118;
+}
+[data-theme="light"] {
+  --council: #886022;
+  --forge: #a84e34;
+  --dojo: #2d7567;
+  --archive: #77539b;
+  --campaign: #516ca0;
+}
+[data-theme="light"]
+  .workspace-nav
+  :is(.nav-hint, .nav-eyebrow, button span span) {
+  color: #6d796c;
+}
+[data-theme="light"] .world-map::after {
+  box-shadow: none;
+}
+[data-theme="light"] .workbench-body :is(input, textarea, select) {
+  background: #eaece0;
+}
+[data-theme="light"] .cockpit .guild-dock .dock-create {
+  background: #394e44;
+  color: #f4f0dc;
+}
+
+/* Daylight is a complete palette, including controls layered over the scene. */
+[data-theme="light"] {
+  --muted: #5e665d;
+}
+[data-theme="light"] .cockpit.is-overview .guild-dock {
+  background: #fffdf6f5;
+  border-color: #59654e38;
+  box-shadow:
+    0 8px 28px #273d3526,
+    inset 0 1px #fff;
+}
+[data-theme="light"] .cockpit .guild-dock .btn {
+  color: #34453d;
+}
+[data-theme="light"] .cockpit .guild-dock .btn:hover,
+[data-theme="light"] .cockpit .guild-dock .btn.selected {
+  background: #dce8dc;
+  color: #203e31;
+}
+[data-theme="light"] .cockpit .guild-dock .dock-play {
+  background: #e4ecdd;
+  color: #315b43;
+}
+[data-theme="light"] .cockpit .guild-dock .dock-create {
+  background: #315441;
+  color: #fffdf6;
+}
+[data-theme="light"] .cockpit .guild-dock .dock-create:hover {
+  background: #244632;
+  color: #fffdf6;
+}
+[data-theme="light"] .cockpit .scene-footnote {
+  color: #233f2f;
+  font-size: 11px;
+}
+[data-theme="light"] .cockpit .scene-footnote > span:first-child {
+  padding: 6px 9px;
+  background: #fffdf3ed;
+  border: 1px solid #49634530;
+  border-radius: 6px;
+}
+[data-theme="light"] .world-label {
+  fill: #243a31;
+  stroke: #fff8e8;
+  stroke-width: 2px;
+  paint-order: stroke;
+}
+[data-theme="light"] .cockpit .sprite-name {
+  fill: #243a31;
+  stroke: #fff8e8;
+  stroke-width: 3px;
+  font-weight: 650;
+}
+[data-theme="light"] .character-thought path,
+[data-theme="light"] .tool-tip rect {
+  fill: #fff8e8;
+  stroke: #677552;
+}
+[data-theme="light"] .character-thought text,
+[data-theme="light"] .tool-tip text {
+  fill: #293e32;
+}
+[data-theme="light"] .workspace-nav button:hover,
+[data-theme="light"] .workspace-nav button[aria-pressed="true"],
+[data-theme="light"] .camera-controls button:hover {
+  background: #dce8dc;
+  border-color: #667e552b;
+}
+[data-theme="light"] .cockpit .world-map::after {
+  box-shadow: none;
+}
+
+@media (max-width: 1400px) {
+  .cockpit .scene-footnote {
+    bottom: 83px;
+    left: 24px;
+    font-size: 9px;
+  }
+  .camera-controls {
+    bottom: 78px;
+    right: 24px;
+  }
+  .workspace-nav {
+    width: 142px;
+    left: 18px;
+    top: 110px;
+  }
+  .workspace-nav button {
+    gap: 7px;
+    padding: 9px 6px;
+  }
+  .workspace-nav button span span {
+    font-size: 8px;
+  }
+  .nav-hint {
+    display: none;
+  }
+  .cockpit .crew-summary {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .workspace-nav {
+    width: auto;
+    top: 94px;
+    left: 14px;
+    right: 14px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    gap: 3px;
+    background: #161a27d9;
+  }
+  .nav-eyebrow,
+  .workspace-nav button span span,
+  .workspace-arrow,
+  .workspace-number {
+    display: none;
+  }
+  .workspace-nav button {
+    padding: 7px 12px;
+  }
+  .workspace-nav strong {
+    font-size: 10px;
+  }
+  .cockpit .world-panel {
+    padding-top: 136px;
+  }
+  .cockpit .guild-dock .dock-tab {
+    font-size: 0;
+    gap: 0;
+    padding: 9px;
+  }
+  .workbench-panel,
+  .cockpit .activity-panel {
+    top: 146px;
+  }
+}
+@media (max-width: 600px) {
+  .cockpit.is-overview .cockpit-header {
+    padding: 14px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cockpit .guild-emblem {
+    width: 28px;
+    height: 28px;
+    font-size: 24px;
+  }
+  .cockpit-brand .brand-type strong {
+    font-size: 25px;
+  }
+  .brand-type > span {
+    font-size: 7px;
+    letter-spacing: 1.3px;
+  }
+  .cockpit .mission-pill {
+    width: 100%;
+    order: 2;
+    padding: 9px 12px;
+    gap: 10px;
+    border-radius: 9px;
+  }
+  .cockpit .mission-pill .badge {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .cockpit .mission-pill strong {
+    font-size: 11px;
+  }
+  .cockpit .mission-pill span span {
+    font-size: 9px;
+  }
+  .workspace-nav {
+    top: 132px;
+    left: 12px;
+    right: 12px;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .workspace-nav button {
+    min-height: 34px;
+    padding: 7px 9px;
+  }
+  .workspace-nav strong {
+    font-size: 10px;
+  }
+  .cockpit .world-panel {
+    padding: 180px 0 135px;
+  }
+  .camera-controls {
+    bottom: 104px;
+    left: 14px;
+    right: 14px;
+    justify-content: center;
+  }
+  .camera-controls button {
+    min-width: 34px;
+    height: 34px;
+  }
+  .camera-controls button:last-child {
+    padding: 0 9px;
+  }
+  .cockpit .scene-footnote {
+    bottom: 156px;
+    left: 14px;
+    right: auto;
+    font-size: 8px;
+  }
+  .cockpit.is-overview .guild-dock {
+    bottom: 14px;
+    max-width: calc(100% - 24px);
+    width: max-content;
+    gap: 1px;
+    padding: 6px;
+    border-radius: 11px;
+    flex-wrap: wrap;
+  }
+  .cockpit .guild-dock .btn {
+    min-height: 30px;
+    padding: 8px;
+  }
+  .cockpit .guild-dock :is(.dock-create, .dock-play) {
+    font-size: 10px;
+  }
+  .cockpit .guild-dock .dock-tab svg {
+    width: 14px;
+  }
+  .cockpit .guild-dock .dock-icon {
+    padding: 8px;
+  }
+  .workbench-panel,
+  .cockpit .activity-panel {
+    top: 181px;
+    bottom: 88px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+  .workbench-heading,
+  .workbench-body {
+    padding: 17px;
+  }
+  .workbench-heading h2 {
+    font-size: 19px;
+  }
+  .toast {
+    top: 177px;
+    font-size: 11px;
+  }
+}
+/* A landscape campus uses the side space for workspaces rather than a floating menu. */
+@media (min-width: 1001px) {
+  .workspace-nav {
+    top: 90px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: auto;
+    flex-direction: row;
+    padding: 5px;
+    gap: 4px;
+  }
+  .workspace-nav .nav-eyebrow,
+  .workspace-nav .nav-hint,
+  .workspace-nav .workspace-arrow {
+    display: none;
+  }
+  .workspace-nav button {
+    min-width: 118px;
+    padding: 8px 12px;
+    gap: 9px;
+  }
+  .workspace-nav button span span {
+    font-size: 8px;
+  }
+  .cockpit .world-panel {
+    padding-top: 148px;
+  }
+  .workbench-panel,
+  .cockpit .activity-panel {
+    top: 150px;
+  }
+}
+.selected-route {
+  pointer-events: none;
+}
+.depth-layer > .guild-character:focus-visible {
+  filter: drop-shadow(0 0 2px #ffe0a2);
+}
+@media (min-width: 1200px) {
+  .cockpit .crew-summary {
+    display: none;
+  }
+  .cockpit .mission-pill {
+    margin-left: auto;
+  }
+  .workspace-nav {
+    top: 23px;
+    padding: 4px;
+    gap: 2px;
+  }
+  .workspace-nav button {
+    min-width: 92px;
+    padding: 9px 10px;
+  }
+  .workspace-nav button span span {
+    display: none;
+  }
+  .workspace-nav strong {
+    font-size: 11px;
+  }
+  .cockpit .world-panel {
+    padding-top: 86px;
+    padding-bottom: 76px;
+  }
+  .workbench-panel,
+  .cockpit .activity-panel {
+    top: 90px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maestro *,
+  .maestro *::before,
+  .maestro *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
