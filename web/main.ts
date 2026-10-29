@@ -1,3 +1,2 @@
-import { mountGuild } from "./guild/app.ts";
-
-mountGuild();
+import { mountLiveGuild } from './guild/workspace-shell.ts';
+mountLiveGuild();

@@ -16,7 +16,7 @@ export function createNavigation(element: HTMLElement, changed: () => void) {
     shogun: "Council",
     samurai: "Forge",
     sentinel: "Dojo",
-    shadow: "Archive",
+    shadow: "Shadow Council",
     campaign: "Campaign",
     courtyard: "courtyard",
     guild: "whole guild",

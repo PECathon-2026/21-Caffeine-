@@ -1,0 +1,20 @@
+{
+  "root": "/tmp/maestro-web-live-4018y182",
+  "checks": [
+    "real daemon auto-start and mutation token enforcement",
+    "named backup saved through website",
+    "live Foundry plan, Samurai, Sentinel, Shadow Council, SSE and reviewed approval integrated real file",
+    "previewed undo restored real code",
+    "image upload, persisted image retrieval and live visual chat",
+    "draft persistence, laptop and mobile layouts without horizontal overflow"
+  ],
+  "missionId": "8dfa1f5e453c4b48b48e0c7d29bd3492",
+  "date": "2026-10-30",
+  "modelAssignments": {
+    "Shogun": "gpt-6-astra",
+    "Samurai": "gpt-6.1-sol",
+    "Sentinel": "gpt-6.1-sol",
+    "Shadow Council": "gpt-6-astra"
+  },
+  "limitations": "Disposable text-change mission verifies orchestration and UI; not a complete PS-001 engineering evaluation."
+}

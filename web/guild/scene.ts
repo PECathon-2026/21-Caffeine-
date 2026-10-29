@@ -417,6 +417,7 @@ export function createGuildScene(
     navigation.sync();
     paint();
   }
+  let liveRoles: Role[] | undefined;
   function paint() {
     refreshFollow();
     const owner = phaseOwner[phase],
@@ -433,7 +434,7 @@ export function createGuildScene(
         y = Math.round(a.position.y);
       const atCampaign = toolById(a.tool).workspace === "campaign";
       const pose =
-        phase === "approval" || phase === "complete"
+        (liveRoles ? !liveRoles.includes(a.role) : phase === "approval" || phase === "complete")
           ? "idle"
           : atCampaign && a.pose === "working"
             ? "thinking"
@@ -446,7 +447,7 @@ export function createGuildScene(
             : pose === "thinking"
               ? idleThoughts[a.role]
               : actionText[a.tool];
-      const active = a.role === owner;
+      const active = liveRoles ? liveRoles.includes(a.role) : a.role === owner;
       group.dataset.pose = pose;
       group.dataset.goal = a.goalNode;
       group.dataset.depthY = String(a.position.y);
@@ -605,6 +606,7 @@ export function createGuildScene(
       reduced: boolean;
       phase: Phase;
       held?: boolean;
+      activeRoles?: Role[];
     }) {
       document.addEventListener("visibilitychange", sync);
       const changed = dark !== options.dark,
@@ -614,6 +616,7 @@ export function createGuildScene(
       reduced = options.reduced;
       phase = options.phase;
       held = options.held ?? false;
+      liveRoles = options.activeRoles;
       if (phaseChanged) engagedRole = undefined;
       if (!dark || reduced || (!mounted && paused)) {
         cancelRelay();

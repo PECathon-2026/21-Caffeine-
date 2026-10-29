@@ -1,0 +1,11 @@
+{
+  "root": "/tmp/maestro-multi-live-o50a0ang",
+  "checks": [
+    "three independent pending real-model chats across two repositories; switching does not cancel requests",
+    "responses and drafts remain in the originating project and session",
+    "selected project/session and draft restored after reload; idle mission bar absent; composer expands and collapses",
+    "desktop, laptop and mobile layouts without horizontal overflow or page errors"
+  ],
+  "date": "2026-10-30",
+  "responseTiming": "Browser responses were held until all three submissions existed, then released; model replies and repository reads were real."
+}

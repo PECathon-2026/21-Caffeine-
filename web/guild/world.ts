@@ -139,7 +139,7 @@ export function guildLayers(dark = true) {
     ["shogun", "SHOGUN’S COUNCIL", 580, 247],
     ["samurai", "SAMURAI FORGE", 264, 580],
     ["sentinel", "SENTINEL DOJO", 944, 580],
-    ["shadow", "SHADOW ARCHIVE", 224, 264],
+    ["shadow", "SHADOW COUNCIL", 224, 264],
     ["campaign", "LIVING CAMPAIGN", 956, 256],
   ] as const) {
     const color = {

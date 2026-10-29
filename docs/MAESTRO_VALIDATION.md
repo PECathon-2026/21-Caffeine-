@@ -1,4 +1,32 @@
-# Maestro UI validation — 30 October 2026
+# Multi-project workspace verification — 30 October 2026
+
+- Read-only T3 schema inspection confirmed the project-folder → thread/session hierarchy.
+- A real browser test opened two repositories and submitted three chats across independent sessions. To exercise response ordering deterministically, the browser held real model responses until all submissions existed, then released them. Every response matched its originating repository; drafts and selected sessions survived switching and reload.
+- The full live mission regression passed: fixed guild planning/execution, both independent reviews, diff approval, named backup, undo and image chat.
+- Two new routing/registry tests cover canonical folder persistence, new Git folder initialization, concurrent project routing, authentication isolation, scoped images/SSE and invalid-project rejection. All 38 existing guild tests, typecheck and production build pass.
+- Browser checks covered 1440px, 1366px and 390px widths, collapsed/expanded floating input, light mode, folder browsing and connection controls. The empty mission banner is absent for ordinary chat.
+- Pre-push full suite: 533 tests, 528 passed, 2 skipped, 3 failed. The same three legacy agent-installation tests also fail on unchanged baseline `0e9fde9` on this machine because their test PATH discovers installed Gemini, Claude and Codex CLIs. The new routing tests and guild tests pass.
+
+Receipts: [multi-project chats](evidence/multi-project-live-2026-10-30.json), [mission regression](evidence/multi-project-mission-regression.json), [pending sessions](evidence/multi-project-pending.png), [desktop](evidence/workspace-desktop.png), [mobile composer](evidence/workspace-mobile-composer.png).
+
+Manual reproducible checks: `scripts/verify-maestro-projects.py` and `scripts/verify-maestro-live.py`, run with the Maestro browser-worker Python and configured model credentials. Test repositories are disposable; user repositories are not modified by these checks.
+
+# Live integration update
+
+The default entry point now uses the Rust daemon integration. The sections below describe historical prototype validation; their simulated in-app outcomes are not used by the live client. See [DAEMON_INTEGRATION.md](DAEMON_INTEGRATION.md) and the live evidence files for current behavior.
+
+Verified current behavior (real Azure Foundry requests, no scripted model results):
+
+- Typecheck, production build and all 38 scene/UI unit tests passed.
+- A live Shogun plan executed Samurai, Sentinel and Shadow Council tasks; both independent gates passed and the website displayed the real integration diff.
+- Approving that diff wrote the requested file in a disposable repository. Previewing and applying Undo restored the original code.
+- A named backup was saved through the UI. Uploaded image pixels were identified correctly by the live model, and persisted attachments loaded from the daemon.
+- Automatic daemon startup, mutation-token rejection, draft persistence and 1366px/390px layouts passed browser checks without page errors.
+- Live TUI guild labels, image attachment and preview commands passed a PTY check. Required-sandbox Next.js/Turbopack preview returned HTTP 200 and a Chromium capture.
+
+Evidence: [live run receipt](evidence/live-daemon-2026-10-30.json), [tasks](evidence/live-tasks.png), [image chat](evidence/live-image-chat.png), [mobile](evidence/live-mobile.png). These checks do not establish all PS evaluation scenarios; see the integration guide for remaining engine gaps.
+
+# Historical scripted UI validation — 30 October 2026
 
 These results come from actual development checks on the UI. The patch, agent conversations and test results shown *inside the demo* remain scripted examples. There is no connected autonomous agent engine.
 

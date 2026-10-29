@@ -227,7 +227,7 @@ export function workspaceLayers(workspace: Workspace, dark: boolean) {
     });
     object("dojo-crate", 390, () => crate(773, 373));
   } else if (workspace === "shadow") {
-    // SHADOW ARCHIVE: exposed bookcases, a scroll-covered desk and a magnifying lens.
+    // SHADOW COUNCIL: exposed bookcases, a scroll-covered desk and a magnifying lens.
     r(490, 500, 186, 9, ink);
     r(491, 423, 184, 77, dark ? "#5b6265" : "#a5a595");
     object("bookshelves", 432, () => {

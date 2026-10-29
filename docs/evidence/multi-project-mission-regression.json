@@ -1,0 +1,14 @@
+{
+  "root": "/tmp/maestro-web-live-7retvgtc",
+  "checks": [
+    "real daemon auto-start and mutation token enforcement",
+    "named backup saved through website",
+    "live Foundry plan, Samurai, Sentinel, Shadow Council, SSE and reviewed approval integrated real file",
+    "previewed undo restored real code",
+    "image upload, persisted image retrieval and live visual chat",
+    "draft persistence, laptop and mobile layouts without horizontal overflow"
+  ],
+  "missionId": "549049c936484873a8447ddae131b151",
+  "date": "2026-10-30",
+  "client": "multi-project session workspace"
+}
