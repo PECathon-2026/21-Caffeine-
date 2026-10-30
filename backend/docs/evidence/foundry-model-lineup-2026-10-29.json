@@ -1,0 +1,610 @@
+{
+  "deploymentLimits": [
+    {
+      "name": "gpt-6-astra",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-5.6-sol",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-5.6-luna",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-5.6-terra",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-6-sol",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-6-luna",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "decision": "false",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "Kimi-K2.5",
+      "capabilities": {
+        "chatCompletion": "true"
+      },
+      "limits": [
+        {
+          "count": 20.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 20000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "Kimi-K2.6",
+      "capabilities": {
+        "agentsV2": "true",
+        "chatCompletion": "true"
+      },
+      "limits": [
+        {
+          "count": 20.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 20000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "Kimi-K2.7-Code",
+      "capabilities": {
+        "agentsV2": "true",
+        "chatCompletion": "true"
+      },
+      "limits": [
+        {
+          "count": 20.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 20000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    },
+    {
+      "name": "gpt-6.1-sol",
+      "capabilities": {
+        "agentsV2": "true",
+        "area": "US",
+        "assistants": "true",
+        "chatCompletion": "true",
+        "responses": "true"
+      },
+      "limits": [
+        {
+          "count": 1000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "request",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        },
+        {
+          "count": 1000000.0,
+          "dynamicThrottlingEnabled": null,
+          "key": "token",
+          "matchPatterns": null,
+          "minCount": null,
+          "renewalPeriod": 60.0
+        }
+      ],
+      "status": "Succeeded"
+    }
+  ],
+  "liveProbes": [
+    {
+      "model": "gpt-6-astra",
+      "httpStatus": 200,
+      "seconds": 4.56,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-5.6-sol",
+      "httpStatus": 200,
+      "seconds": 4.63,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-5.6-luna",
+      "httpStatus": 200,
+      "seconds": 3.15,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-5.6-terra",
+      "httpStatus": 200,
+      "seconds": 2.5,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-6-sol",
+      "httpStatus": 200,
+      "seconds": 3.0,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-6-luna",
+      "httpStatus": 200,
+      "seconds": 4.12,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    },
+    {
+      "model": "Kimi-K2.5",
+      "httpStatus": 200,
+      "seconds": 7.07,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "prompt_tokens": 25,
+        "completion_tokens": 187,
+        "total_tokens": 212,
+        "audio_prompt_tokens": 0
+      },
+      "valid": true
+    },
+    {
+      "model": "Kimi-K2.6",
+      "httpStatus": 200,
+      "seconds": 6.01,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "prompt_tokens": 25,
+        "completion_tokens": 40,
+        "total_tokens": 65,
+        "audio_prompt_tokens": 0
+      },
+      "valid": true
+    },
+    {
+      "model": "Kimi-K2.7-Code",
+      "httpStatus": 200,
+      "seconds": 4.58,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "prompt_tokens": 25,
+        "completion_tokens": 45,
+        "total_tokens": 70,
+        "audio_prompt_tokens": 0
+      },
+      "valid": true
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "httpStatus": 200,
+      "seconds": 3.4,
+      "text": "{\"ready\":true}",
+      "usage": {
+        "input_tokens": 23,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 12,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 35
+      },
+      "valid": true
+    }
+  ],
+  "astraPlanningCheck": {
+    "detail": {
+      "mission": {
+        "id": "7acd2076d0884f9ea2e838427e2c796f",
+        "objective": "Plan a Python greet(name) library and a unit test. Include a coder and an independent reviewer.",
+        "status": "awaiting_plan_approval",
+        "planSummary": "Add a minimal Python greeting library and a standard-library unit test, then have an independent reviewer inspect the patch and verify the test passes.",
+        "baseHead": "7104f3b01d87e97a3e5f075b934aed57877cf53d",
+        "missionBranch": "maestro/mission/7acd2076d088",
+        "integrationHead": null,
+        "finalApprovalId": null,
+        "createdAt": 1793294281117,
+        "updatedAt": 1793294294633
+      },
+      "tasks": [
+        {
+          "id": "b960ac2d20594f859d647c537fddc9b1",
+          "missionId": "7acd2076d0884f9ea2e838427e2c796f",
+          "taskKey": "implement-greet",
+          "role": "coder",
+          "title": "Implement greet and its unit test",
+          "description": "Create greet.py with greet(name: str) -> str returning the exact string f\"Hello, {name}!\". Add tests/test_greet.py using unittest to verify greet(\"Ada\") returns \"Hello, Ada!\". Keep the implementation dependency-free and verify it from the repository root with python -m unittest discover -s tests.",
+          "status": "ready",
+          "dependencies": [],
+          "acceptance": [
+            "greet.py exposes an importable greet(name: str) -> str function.",
+            "greet(\"Ada\") returns exactly \"Hello, Ada!\".",
+            "python -m unittest discover -s tests discovers and passes the greeting unit test.",
+            "No third-party dependencies are introduced."
+          ],
+          "risk": "low",
+          "attempts": 0,
+          "statusReason": null,
+          "summary": null,
+          "leaseOwner": null,
+          "leaseExpiresAt": null,
+          "leaseGeneration": null,
+          "workspacePath": null,
+          "branchName": null,
+          "baseRef": null,
+          "patchHash": null,
+          "integratedAt": null,
+          "integrationCommit": null,
+          "parentTaskId": null,
+          "delegationDepth": 0,
+          "writeScopes": [
+            "greet.py",
+            "tests/test_greet.py"
+          ],
+          "modelOverride": null,
+          "createdAt": 1793294294633,
+          "updatedAt": 1793294294633
+        },
+        {
+          "id": "fc885e513fa742a7854c9b5f69ffa44b",
+          "missionId": "7acd2076d0884f9ea2e838427e2c796f",
+          "taskKey": "review-greet",
+          "role": "reviewer",
+          "title": "Independently review implementation and test",
+          "description": "An independent reviewer inspects the coder's patch for correctness, simplicity, and scope compliance. Run python -m unittest discover -s tests from the repository root and confirm the test asserts the specified greeting. Report findings without modifying files.",
+          "status": "proposed",
+          "dependencies": [
+            "implement-greet"
+          ],
+          "acceptance": [
+            "A reviewer other than the implementer reviews the complete patch.",
+            "The reviewer confirms the implementation and test match the specified greeting contract.",
+            "The reviewer independently runs the test command and records its result.",
+            "The review reports any defects or explicitly states that no blocking issues were found."
+          ],
+          "risk": "low",
+          "attempts": 0,
+          "statusReason": null,
+          "summary": null,
+          "leaseOwner": null,
+          "leaseExpiresAt": null,
+          "leaseGeneration": null,
+          "workspacePath": null,
+          "branchName": null,
+          "baseRef": null,
+          "patchHash": null,
+          "integratedAt": null,
+          "integrationCommit": null,
+          "parentTaskId": null,
+          "delegationDepth": 0,
+          "writeScopes": [],
+          "modelOverride": null,
+          "createdAt": 1793294294633,
+          "updatedAt": 1793294294633
+        }
+      ],
+      "stats": {
+        "modelCalls": 1,
+        "inputTokens": 372,
+        "outputTokens": 509,
+        "costMicroUsd": 29170,
+        "failedCalls": 0
+      },
+      "plan": {
+        "summary": "Add a minimal Python greeting library and a standard-library unit test, then have an independent reviewer inspect the patch and verify the test passes.",
+        "tasks": [
+          {
+            "key": "implement-greet",
+            "role": "coder",
+            "title": "Implement greet and its unit test",
+            "description": "Create greet.py with greet(name: str) -> str returning the exact string f\"Hello, {name}!\". Add tests/test_greet.py using unittest to verify greet(\"Ada\") returns \"Hello, Ada!\". Keep the implementation dependency-free and verify it from the repository root with python -m unittest discover -s tests.",
+            "dependencies": [],
+            "acceptance": [
+              "greet.py exposes an importable greet(name: str) -> str function.",
+              "greet(\"Ada\") returns exactly \"Hello, Ada!\".",
+              "python -m unittest discover -s tests discovers and passes the greeting unit test.",
+              "No third-party dependencies are introduced."
+            ],
+            "risk": "low",
+            "writeScopes": [
+              "greet.py",
+              "tests/test_greet.py"
+            ]
+          },
+          {
+            "key": "review-greet",
+            "role": "reviewer",
+            "title": "Independently review implementation and test",
+            "description": "An independent reviewer inspects the coder's patch for correctness, simplicity, and scope compliance. Run python -m unittest discover -s tests from the repository root and confirm the test asserts the specified greeting. Report findings without modifying files.",
+            "dependencies": [
+              "implement-greet"
+            ],
+            "acceptance": [
+              "A reviewer other than the implementer reviews the complete patch.",
+              "The reviewer confirms the implementation and test match the specified greeting contract.",
+              "The reviewer independently runs the test command and records its result.",
+              "The review reports any defects or explicitly states that no blocking issues were found."
+            ],
+            "risk": "low",
+            "writeScopes": []
+          }
+        ]
+      }
+    },
+    "invocations": [
+      {
+        "role": "planner",
+        "provider_id": "foundry-astra",
+        "model": "gpt-6-astra",
+        "status": "succeeded",
+        "input_tokens": 372,
+        "output_tokens": 509,
+        "cost_micro_usd": 29170
+      }
+    ]
+  }
+}

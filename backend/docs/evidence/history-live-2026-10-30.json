@@ -1,0 +1,19 @@
+{
+  "root": "/tmp/maestro-history-live-r9eczd28",
+  "ui": "timeline, diff, preview, apply passed",
+  "cli": "forward restore passed",
+  "manualEditsPreserved": true,
+  "headAndStagingPreserved": true,
+  "versionCount": 6,
+  "checks": {
+    "initial_full_suite": 317,
+    "history_regressions": 9,
+    "http_and_tui": "passed",
+    "latest_core": "passed"
+  },
+  "notes": [
+    "No model calls are needed for undo or restore.",
+    "Working files and staging in the user project were not restored during validation.",
+    "UI validation used a real PTY and the compiled binary."
+  ]
+}

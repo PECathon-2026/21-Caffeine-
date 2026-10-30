@@ -1,0 +1,109 @@
+# GPT-only template. Replace YOUR-RESOURCE and verify deployment names.
+# Set RPM/TPM to your own Azure quotas; these values describe the original setup.
+# API keys belong in MAESTRO_FOUNDRY_API_KEY, never in this file.
+version = 1
+checks = []
+
+[providers.foundry-astra]
+deployment = "gpt-6-astra"
+kind = "openai_responses"
+reasoningEffort = "medium"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-gpt]
+deployment = "gpt-6.1-sol"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-sol]
+deployment = "gpt-6-sol"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-luna]
+deployment = "gpt-6-luna"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-56-sol]
+deployment = "gpt-5.6-sol"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-56-terra]
+deployment = "gpt-5.6-terra"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[providers.foundry-56-luna]
+deployment = "gpt-5.6-luna"
+kind = "openai_responses"
+reasoningEffort = "low"
+baseUrl = "https://YOUR-RESOURCE.openai.azure.com/openai/v1"
+apiKeyEnv = "MAESTRO_FOUNDRY_API_KEY"
+requestsPerMinute = 1000
+tokensPerMinute = 1000000
+
+[roles.planner]
+maxContextChars = 48000
+maxOutputTokens = 8192
+model = { provider = "foundry-astra", model = "gpt-6-astra" }
+fallbacks = [{ provider = "foundry-gpt", model = "gpt-6.1-sol" }, { provider = "foundry-sol", model = "gpt-6-sol" }]
+
+[roles.coder]
+maxContextChars = 48000
+maxOutputTokens = 8192
+model = { provider = "foundry-gpt", model = "gpt-6.1-sol" }
+fallbacks = [{ provider = "foundry-sol", model = "gpt-6-sol" }, { provider = "foundry-56-sol", model = "gpt-5.6-sol" }]
+
+[roles.designer]
+maxContextChars = 48000
+maxOutputTokens = 8192
+model = { provider = "foundry-sol", model = "gpt-6-sol" }
+fallbacks = [{ provider = "foundry-gpt", model = "gpt-6.1-sol" }, { provider = "foundry-56-terra", model = "gpt-5.6-terra" }]
+
+[roles.reviewer]
+maxContextChars = 48000
+maxOutputTokens = 8192
+model = { provider = "foundry-gpt", model = "gpt-6.1-sol" }
+fallbacks = [{ provider = "foundry-sol", model = "gpt-6-sol" }, { provider = "foundry-astra", model = "gpt-6-astra" }]
+
+[roles.security]
+maxContextChars = 48000
+maxOutputTokens = 8192
+model = { provider = "foundry-astra", model = "gpt-6-astra" }
+fallbacks = [{ provider = "foundry-gpt", model = "gpt-6.1-sol" }]
+
+[runtime]
+guildRoles = true
+maxConcurrentTasks = 2
+maxTotalTokens = 2000000
+maxCostMicroUsd = 20000000
+providerRetries = 3
+requestTimeoutMs = 180000
+
+[integration]
+finalApproval = true

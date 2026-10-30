@@ -1,3 +1,11 @@
+# Combined repository verification — 30 October 2026
+
+- Imported the current Rust backend, Python workers, tests, documentation and lockfile into `backend/`; backend runtime source is unchanged by the relocation.
+- From the combined repository: `npm run backend:test` passed all 410 Rust tests; `npm run backend:build` produced the release executable.
+- Type checking, the frontend build, all 40 routing/guild tests, seven LangGraph tests and two browser-worker tests passed.
+- A disposable-project startup check removed `MAESTRO_BINARY` from its test environment and confirmed that the bridge started this checkout's `backend/target/release/maestro`, then read authenticated project state and shut down only that test daemon. This check made no model calls.
+- Build products, local state, Python caches and environment files are ignored. The imported text scan found no credentials. Historical real-model evidence below was retained; it was not rerun for this source relocation.
+
 # Multi-project workspace verification — 30 October 2026
 
 - Read-only T3 schema inspection confirmed the project-folder → thread/session hierarchy.

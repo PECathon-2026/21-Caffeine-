@@ -1,0 +1,37 @@
+[package]
+name = "maestro-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "maestro"
+path = "src/main.rs"
+
+[lib]
+name = "maestro_cli"
+path = "src/lib.rs"
+
+[dependencies]
+maestro-types = { workspace = true }
+maestro-store = { workspace = true }
+maestro-engine = { workspace = true }
+maestro-providers = { workspace = true }
+maestro-daemon = { workspace = true }
+maestro-tui = { workspace = true }
+clap = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+tokio-util = { workspace = true }
+serde_json = { workspace = true }
+futures = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[target.'cfg(unix)'.dependencies]
+# Already in the tree via tokio/rusqlite; used only to restore default
+# SIGPIPE handling so `maestro … | head` exits quietly instead of panicking.
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = { workspace = true }

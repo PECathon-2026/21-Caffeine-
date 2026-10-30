@@ -1,0 +1,6 @@
+{
+  "chat": "Left: a blue rectangle. Right: an orange circle.",
+  "missionId": "90da5f8a5f2745bdb8add8ac40c83040",
+  "observation": "# Reference image observations\n\nBased on the pixels in `reference.png`, two filled shapes appear on a white background:\n\n- **Left:** A blue rectangle with straight edges and square corners, slightly taller than it is wide.\n- **Right:** An orange circle.\n\nThe shapes are separated by a wide white gap.\n",
+  "status": "completed"
+}

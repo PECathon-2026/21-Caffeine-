@@ -68,13 +68,11 @@ The website does not yet add a remote/cloud relay, multi-user accounts, inline c
 
 ## Run for the mentor round
 
-Install the current Rust Maestro binary and its LangGraph/browser workers first. Set `guildRoles = true` under `[runtime]` in the Maestro configuration. Then, in this UI repository:
+The Rust backend and LangGraph/browser workers are included under `backend/`. Follow [the combined setup guide](SETUP.md), including provider configuration and `guildRoles = true`. Then, from the repository root:
 
 ```sh
 npm ci
-MAESTRO_PROJECT=/home/anay/Desktop/Personal/Family-Tree \
-MAESTRO_BINARY=/home/anay/.local/bin/maestro \
-npm run dev
+MAESTRO_PROJECT=/absolute/path/to/your/project npm run dev
 ```
 
 Open `http://127.0.0.1:5173`. Use `MAESTRO_PORT=5174` if necessary. The bridge starts the selected project's daemon if needed. `MAESTRO_PROJECT` chooses the initial folder; use **Open project** and the sidebar to add/switch folders without restarting. The Connection page describes the selected session’s repository. A public static deployment alone cannot access a viewer's local daemon.

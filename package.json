@@ -25,7 +25,10 @@
     "site": "node scripts/build-site.mjs",
     "site:dev": "node scripts/build-site.mjs --dev",
     "preview": "node scripts/preview-guild.mjs",
-    "test:guild": "node --test test/web.guild*.test.mjs"
+    "test:guild": "node --test test/web.guild*.test.mjs",
+    "backend:build": "cargo build --manifest-path backend/Cargo.toml --locked --release -p maestro-cli",
+    "backend:test": "cargo test --manifest-path backend/Cargo.toml --locked --workspace",
+    "workers:install": "python3 backend/scripts/install-langgraph.py && python3 backend/scripts/install-browser.py"
   },
   "keywords": [
     "claude-code",

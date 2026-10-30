@@ -1,13 +1,18 @@
 # Maestro — The Engineering Guild
 
-A live pixel-art control room for the Rust Maestro daemon. **Shogun plans, Samurai builds, Sentinel tests, and Shadow Council reviews.** The default application now displays real missions, tasks, tool events, approvals and code history across multiple local repositories and sessions.
+A live pixel-art control room for the Rust Maestro daemon. **Shogun plans, Samurai builds, Sentinel tests, and Shadow Council reviews.** This repository contains the website, local bridge, and complete Rust/Python backend. The application displays real missions, tasks, tool events, approvals and code history across multiple local repositories and sessions.
 
 ```sh
 npm ci
-MAESTRO_PROJECT=/path/to/your/project MAESTRO_BINARY=/path/to/maestro npm run dev
+npm run backend:build
+npm run workers:install
+# Configure providers and enable LangGraph using docs/SETUP.md, then:
+MAESTRO_PROJECT=/path/to/your/project npm run dev
 ```
 
-Open **http://127.0.0.1:5173**. Use **Open project** to add folders and **＋** beside a project to create sessions. The local bridge connects to or starts a separate Maestro daemon for each repository. Switching sessions preserves background work and drafts. Provider credentials and daemon authentication stay server-side. The Rust backend, LangGraph worker and browser worker must be installed separately.
+Open **http://127.0.0.1:5173**. Use **Open project** to add folders and **＋** beside a project to create sessions. The local bridge connects to or starts a separate Maestro daemon for each repository. Switching sessions preserves background work and drafts. Provider credentials and daemon authentication stay server-side. The bridge prefers the backend built from this checkout; `MAESTRO_BINARY` can override it.
+
+Follow [setup from a fresh clone](docs/SETUP.md) for system requirements, credentials, worker configuration and validation. Backend source, tests, architecture and tool documentation are under [`backend/`](backend/README.md).
 
 The compact footer expands on focus; secondary controls stay out of the way. The website includes persistent chat and sessions, mission controls, a live agent roster, full task details, plan/patch approval, evidence inspection, named backups, previewed undo/restore, image attachments and local preview links. The model assignments stay fixed. Enable `guildRoles = true` under `[runtime]` in the Maestro configuration for the four PS-001 contracts and both review gates.
 
@@ -16,6 +21,7 @@ See [daemon integration and the TUI feature comparison](docs/DAEMON_INTEGRATION.
 ```sh
 npm run typecheck
 npm run build
+npm run backend:test
 npm run test:guild
 node --test test/maestro.projects.test.mjs
 ```

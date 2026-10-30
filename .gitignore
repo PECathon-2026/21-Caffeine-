@@ -4,3 +4,19 @@ dist
 *.log
 site/dist
 .wrangler
+
+# Local Maestro state, build products, and credentials
+/backend/target/
+.maestro/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

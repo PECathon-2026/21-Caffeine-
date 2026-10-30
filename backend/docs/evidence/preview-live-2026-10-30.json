@@ -1,0 +1,19 @@
+{
+  "blockedRequests": [],
+  "devConnections": [
+    "ws://127.0.0.1:43777/_next/hmr?id=RFNqcBVeSrr1Kk2EFKhni"
+  ],
+  "errors": [],
+  "height": 600,
+  "imageId": "ec7a93ba3fff45b62e54edecb6d1422465c76333c4888451b94d60ef321fc793",
+  "reference": "[[image:ec7a93ba3fff45b62e54edecb6d1422465c76333c4888451b94d60ef321fc793]]",
+  "status": 200,
+  "text": "Maestro preview verified",
+  "title": "",
+  "url": "http://127.0.0.1:43777/",
+  "width": 800,
+  "sandbox": "required",
+  "bundler": "Turbopack",
+  "clientHydration": "Client useEffect replaced Waiting for hydration with Maestro preview verified",
+  "previewLifecycle": "started, HTTP 200, hydrated, captured, stopped"
+}

@@ -1,0 +1,19 @@
+{
+  "validation": [
+    {
+      "chatBackup": "passed",
+      "versionId": "4c90376769f2474097d039b58c8d46c6",
+      "root": "/tmp/maestro-save-tool-live-l2_ut066"
+    },
+    {
+      "langgraphBackupBeforeEdit": "passed",
+      "versionId": "5eeebd58074d47a6af1338d5fcc948c6",
+      "missionId": "08baeef2fb254ffa8392749ab60cb3ba",
+      "status": "completed",
+      "root": "/tmp/maestro-save-tool-live-l2_ut066"
+    }
+  ],
+  "regressions": "190 engine/provider tests, targeted save-tool tests, and 6 graph tests passed",
+  "modelSelection": "Existing fixed roles unchanged",
+  "note": "Live checks used a disposable repository and actual configured Foundry models."
+}

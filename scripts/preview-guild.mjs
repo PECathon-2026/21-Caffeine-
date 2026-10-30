@@ -1,6 +1,8 @@
 // Same-origin local UI bridge. Provider keys and daemon tokens stay server-side.
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { resolve, sep, extname } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import { Readable } from 'node:stream';
@@ -11,7 +13,8 @@ const root=resolve('dist/web');
 const project=resolve(process.env.MAESTRO_PROJECT||process.cwd());
 const port=Number(process.env.MAESTRO_PORT||5173);
 const secret=randomBytes(32).toString('hex');
-const binary=process.env.MAESTRO_BINARY||'maestro';
+const bundledBinary=fileURLToPath(new URL('../backend/target/release/maestro',import.meta.url));
+const binary=process.env.MAESTRO_BINARY||(existsSync(bundledBinary)?bundledBinary:'maestro');
 const types={'.html':'text/html','.js':'text/javascript','.svg':'image/svg+xml','.woff2':'font/woff2','.css':'text/css','.png':'image/png','.jpg':'image/jpeg'};
 const registry=await createProjectRegistry({file:process.env.MAESTRO_PROJECTS_FILE||resolve(homedir(),'.local/share/maestro/web-projects.json'),initial:project,binary});
 async function body(req){const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>17*1024*1024)throw Object.assign(new Error('Upload exceeds 17 MiB'),{status:413});chunks.push(chunk);}return Buffer.concat(chunks);}
